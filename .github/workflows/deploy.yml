@@ -26,9 +26,7 @@ jobs:
         with:
           node-version: 24
           cache: "npm"
-      - name: install lock
-        run: npm install
-        
+
       - name: Install dependencies
         run: npm ci
 
