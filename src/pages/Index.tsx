@@ -1,7 +1,7 @@
 import { Mail, ExternalLink, Globe, Shield, Users, Eye, Scale, HelpCircle, Lightbulb, BookOpen, FileText, Clock } from "lucide-react";
 import mie2026Logo from "@/assets/mie2026.jpg";
 import uuLogo from "@/assets/uu-logo.png";
-import bihLogo from "@/assets/bih-logo.png";
+import bihLogo from "@/assets/bih-logo.svg";
 import workshopArt from "@/assets/workshop-art.svg";
 
 const topics = [
@@ -27,11 +27,11 @@ const outcomes = [
 ];
 
 const organisers = [
-  { name: "Soumya Shivananda", affiliation: "Berlin Institute of Health at Charité, Berlin, Germany" },
-  { name: "Luciana Terceiro", affiliation: "Uppsala University, Uppsala, Sweden" },
-  { name: "Maria Hägglung", affiliation: "Uppsala University, Uppsala, Sweden" },
-  { name: "Anna Kharko", affiliation: "Uppsala University / University of Manchester, UK" },
-  { name: "Maija Poikela", affiliation: "Berlin Institute of Health at Charité, Berlin, Germany" },
+  { name: "Soumya Shivananda", affiliation: "Berlin Institute of Health at Charité, Berlin, Germany", url: "https://www.bihealth.org/en/research/research-group/health-data-privacy" },
+  { name: "Luciana Terceiro", affiliation: "Uppsala University, Uppsala, Sweden", url: "https://www.uu.se/en/contact-and-organisation/staff?query=N23-160" },
+  { name: "Maria Hägglung", affiliation: "Uppsala University, Uppsala, Sweden", url: "https://www.uu.se/en/contact-and-organisation/staff?query=N99-687" },
+  { name: "Anna Kharko", affiliation: "Uppsala University / University of Manchester, UK", url: "https://www.uu.se/en/contact-and-organisation/staff?query=N21-1731" },
+  { name: "Maija Poikela", affiliation: "Berlin Institute of Health at Charité, Berlin, Germany", url: "https://www.bihealth.org/en/research/research-group/health-data-privacy" },
 ];
 
 const Index = () => {
@@ -43,8 +43,8 @@ const Index = () => {
         <div className="max-w-5xl mx-auto px-6 pt-16 pb-12">
           <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
             <div className="flex-1 max-w-2xl">
-              <span className="inline-block px-4 py-1.5 mb-6 text-sm font-semibold tracking-wide bg-primary/10 text-primary rounded-full">
-                Workshop @ MIE 2026
+              <span className="inline-block px-4 py-1.5 mb-6 font-semibold tracking-wide bg-primary/10 text-primary rounded-full" style={{ fontSize: '15.4px' }}>
+                Workshop - MIE 2026
               </span>
               <h1 className="text-4xl md:text-5xl font-bold text-foreground leading-tight mb-2" style={{ fontFamily: "'Times New Roman', Times, serif" }}>
                 Consent Without Borders
@@ -55,10 +55,10 @@ const Index = () => {
 
               <div className="flex flex-wrap items-center gap-4 mt-8 font-medium text-foreground/80" style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: '18px' }}>
                 <span className="flex items-center gap-1.5 font-bold">
-                  <Clock className="w-4 h-4 text-primary" /> 23/05 – 14h
+                  <Clock className="w-4 h-4 text-primary" /> 25/05 – 16h30–18h
                 </span>
                 <span className="text-border">|</span>
-                <span className="font-bold">Venue/Room: TBD</span>
+                <span className="font-bold">Room 6 - Zefiro</span>
               </div>
             </div>
             <div className="flex-shrink-0 md:mt-12">
@@ -130,8 +130,12 @@ const Index = () => {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {organisers.map((o) => (
             <div key={o.name} className="bg-card rounded-lg p-5 border border-border/60 py-[8px]">
-              <p className="font-semibold text-foreground text-sm">{o.name}</p>
-              <p className="text-xs text-muted-foreground mt-1 leading-relaxed" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>{o.affiliation}</p>
+              {o.url ? (
+                <a href={o.url} target="_blank" rel="noopener noreferrer" className="font-semibold text-foreground hover:text-primary hover:underline transition-colors" style={{ fontSize: '16.8px' }}>{o.name}</a>
+              ) : (
+                <p className="font-semibold text-foreground" style={{ fontSize: '16.8px' }}>{o.name}</p>
+              )}
+              <p className="text-muted-foreground mt-1 leading-relaxed" style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: '14.4px' }}>{o.affiliation}</p>
             </div>
           ))}
         </div>
@@ -149,8 +153,8 @@ const Index = () => {
       {/* Footer */}
       <footer className="bg-foreground text-primary-foreground py-6">
         <div className="max-w-5xl mx-auto px-6 text-center">
-          <p className="text-xs opacity-50" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-            Further details (date, room) will be announced. © 2026 Consent Without Borders Workshop.
+          <p className="opacity-50" style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: '15.6px' }}>
+            May 25th - 16h30 to 18h | Room 6 - Zefiro © 2026 Consent Without Borders Workshop.
           </p>
         </div>
       </footer>
